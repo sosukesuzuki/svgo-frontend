@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'normalize.css';
 
 const Heading = () => {
     return <h1>foo</h1>;
