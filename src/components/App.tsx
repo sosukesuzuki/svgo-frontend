@@ -21,8 +21,8 @@ const App = () => {
                         <Text>Enter your svg content:</Text>
                         <CodeEditor
                             value={svgContent}
-                            onChange={value => {
-                                setSvgContent(value);
+                            onChange={e => {
+                                setSvgContent(e.target.value);
                             }}
                         />
                         <Button>run</Button>
