@@ -1,9 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css';
+import { workerContext } from './lib/contexts';
+import WorkerProxy from './WorkerProxy';
 
-const Heading = () => {
+const App = () => {
     return <h1>foo</h1>;
 };
 
-ReactDOM.render(<Heading />, document.querySelector('.root'));
+async function main(): Promise<void> {
+    const proxy = await new (WorkerProxy as any)();
+    ReactDOM.render(
+        <workerContext.Provider value={proxy}>
+            <App />
+        </workerContext.Provider>,
+        document.querySelector('.root'),
+    );
+}
+
+main();

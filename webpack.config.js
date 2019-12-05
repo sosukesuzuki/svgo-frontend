@@ -10,7 +10,7 @@ const copyRules = [
     {
         from: __dirname + '/src/index.html',
         to: __dirname + '/dist/index.html',
-    }
+    },
 ];
 
 module.exports = {
