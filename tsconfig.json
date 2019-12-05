@@ -19,5 +19,5 @@
         "moduleResolution": "node",
         "esModuleInterop": true
     },
-    "include": ["svgo/src/index.ts"],
+    "include": ["svgo/src/index.ts"]
 }
