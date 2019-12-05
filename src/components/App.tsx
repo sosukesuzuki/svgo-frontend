@@ -1,24 +1,34 @@
-import React, { useState } from 'react';
-import { useWorkerContext } from '../lib/contexts';
+import React, { Suspense, useState } from 'react';
+import styled from 'styled-components';
 import Navbar from './Navbar';
+import { Spinner, Button, Text } from '@blueprintjs/core';
+import { svgContentContext } from '../lib/contexts';
+const CodeEditor = React.lazy(() => import('./CodeEditor'));
+
+const Container = styled.div`
+    width: 800px;
+    margin: 0 auto;
+`;
 
 const App = () => {
-    const WorkerAPI = useWorkerContext();
-    const [f, setF] = useState<string | null>('');
+    const [svgContent, setSvgContent] = useState('');
     return (
         <div>
             <Navbar />
-            <button
-                onClick={async () => {
-                    const data = await WorkerAPI.optimizeSVG(`<svxg version="1.1" width="10" height="20">
-                test
-            </svg>`);
-                    setF(data);
-                }}
-            >
-                foo
-            </button>
-            <p>{f}</p>
+            <svgContentContext.Provider value={{ svgContent, setSvgContent }}>
+                <Suspense fallback={<Spinner />}>
+                    <Container>
+                        <Text>Enter your svg content:</Text>
+                        <CodeEditor
+                            value={svgContent}
+                            onChange={value => {
+                                setSvgContent(value);
+                            }}
+                        />
+                        <Button>run</Button>
+                    </Container>
+                </Suspense>
+            </svgContentContext.Provider>
         </div>
     );
 };

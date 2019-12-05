@@ -11,7 +11,8 @@ export async function optimizeSVG(svgText: string): Promise<string | null> {
 
     let data;
     try {
-        data = await svgo.optimize(svgText).data;
+        const res = await svgo.optimize(svgText);
+        data = res.data;
     } catch (err) {
         throw err;
     }

@@ -1,12 +1,23 @@
 import React from 'react';
-import { Navbar, NavbarGroup, NavbarHeading } from '@blueprintjs/core';
+import styled from 'styled-components';
+import {
+    Navbar,
+    NavbarGroup,
+    NavbarHeading,
+    Alignment,
+} from '@blueprintjs/core';
+
+const CenteredNavbarGroup = styled(NavbarGroup)`
+    width: 800px;
+    margin: 0 auto;
+`;
 
 const Topnav: React.FC = () => {
     return (
         <Navbar>
-            <NavbarGroup>
+            <CenteredNavbarGroup align={Alignment.CENTER}>
                 <NavbarHeading>SVGO Frontend</NavbarHeading>
-            </NavbarGroup>
+            </CenteredNavbarGroup>
         </Navbar>
     );
 };
