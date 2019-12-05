@@ -5,7 +5,7 @@ import { workerContext } from './lib/contexts';
 import WorkerProxy from './WorkerProxy';
 
 const App = () => {
-    return <h1>foo</h1>;
+    return <h1></h1>;
 };
 
 async function main(): Promise<void> {
