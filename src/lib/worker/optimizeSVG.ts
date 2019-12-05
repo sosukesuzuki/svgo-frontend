@@ -9,7 +9,12 @@ function assertString(value: unknown): asserts value is string {
 export async function optimizeSVG(svgText: string): Promise<string | null> {
     if (!svgo) return null;
 
-    const { data } = await svgo.optimize(svgText);
+    let data;
+    try {
+        data = await svgo.optimize(svgText).data;
+    } catch (err) {
+        throw err;
+    }
 
     assertString(data);
 
