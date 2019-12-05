@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,json,yaml,html}\"",
-    "lint": "eslint . --ext ts,tsx"
+    "lint": "eslint . --ext ts,tsx",
+    "build:svgo": "rollup -c"
   },
   "husky": {
     "hooks": {
