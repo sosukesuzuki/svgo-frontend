@@ -15,14 +15,17 @@ const Main = () => {
     return (
         <Suspense fallback={<Spinner />}>
             <Container>
-                <h3>Enter your svg content:</h3>
+                <h3>Enter your svg content({svgContent.length} chars):</h3>
                 <CodeEditor
                     value={svgContent}
                     onChange={e => {
                         setSvgContent(e.target.value);
                     }}
                 />
-                <h3>Optimized your svg content:</h3>
+                <h3>
+                    Optimized your svg content({optimizedSvgContent.length}{' '}
+                    chars):
+                </h3>
                 <Pre>
                     <Code>{optimizedSvgContent}</Code>
                 </Pre>
