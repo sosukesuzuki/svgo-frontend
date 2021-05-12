@@ -67,7 +67,7 @@
   "dependencies": {
     "@blueprintjs/core": "^3.22.0",
     "@loadable/component": "^5.11.0",
-    "codemirror": "^5.49.2",
+    "codemirror": "^5.58.2",
     "comlink": "^4.1.0",
     "normalize.css": "^8.0.1",
     "react": "^16.12.0",
